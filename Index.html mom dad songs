@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Mom Dad Travels • Music</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+:root{
+    --bg:#08070d;
+    --card:rgba(255,255,255,.07);
+    --border:rgba(255,255,255,.10);
+    --white:#fff;
+    --muted:#9996a8;
+    --pink:#ff4f9a;
+    --purple:#8b5cf6;
+    --gold:#ffd166;
+}
+
+body{
+    background:
+        radial-gradient(circle at 10% 10%,rgba(139,92,246,.20),transparent 28%),
+        radial-gradient(circle at 90% 30%,rgba(255,79,154,.15),transparent 25%),
+        var(--bg);
+    color:var(--white);
+    font-family:'DM Sans',sans-serif;
+    min-height:100vh;
+    padding-bottom:110px;
+}
+
+/* HEADER */
+
+header{
+    height:75px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 6%;
+    position:sticky;
+    top:0;
+    z-index:50;
+    background:rgba(8,7,13,.75);
+    backdrop-filter:blur(20px);
+    border-bottom:1px solid rgba(255,255,255,.06);
+}
+
+.logo{
+    font-size:21px;
+    font-weight:700;
+    letter-spacing:-.5px;
+}
+
+.logo span{
+    color:var(--pink);
+}
+
+nav{
+    display:flex;
+    gap:30px;
+}
+
+nav a{
+    color:#aaa7b8;
+    text-decoration:none;
+    font-size:14px;
+    transition:.3s;
+}
+
+nav a:hover{
+    color:white;
+}
+
+/* MAIN */
+
+.container{
+    width:88%;
+    max-width:1250px;
+    margin:auto;
+}
+
+/* HERO */
+
+.hero{
+    min-height:450px;
+    margin-top:30px;
+    border-radius:30px;
+    overflow:hidden;
+    position:relative;
+    display:flex;
+    align-items:center;
+    padding:55px;
+    background:
+        linear-gradient(90deg,rgba(8,7,13,.97) 0%,rgba(8,7,13,.70) 45%,rgba(8,7,13,.10)),
+        linear-gradient(135deg,#25154e,#9e315d);
+    box-shadow:0 30px 100px rgba(0,0,0,.45);
+}
+
+.hero:after{
+    content:"";
+    position:absolute;
+    width:350px;
+    height:350px;
+    right:8%;
+    top:40px;
+    background:linear-gradient(135deg,#ff4f9a,#7654ff);
+    filter:blur(80px);
+    opacity:.45;
+}
+
+.hero-content{
+    position:relative;
+    z-index:2;
+    max-width:650px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 14px;
+    border:1px solid rgba(255,255,255,.16);
+    background:rgba(255,255,255,.08);
+    border-radius:30px;
+    color:#ddd;
+    font-size:12px;
+    margin-bottom:20px;
+}
+
+.hero h1{
+    font-family:'Playfair Display',serif;
+    font-size:62px;
+    line-height:1.05;
+    letter-spacing:-2px;
+}
+
+.hero h1 span{
+    color:#ff78ad;
+}
+
+.hero p{
+    color:#bbb7c7;
+    max-width:500px;
+    margin:20px 0 30px;
+    line-height:1.7;
+}
+
+.primary{
+    border:0;
+    background:white;
+    color:#111;
+    padding:14px 23px;
+    border-radius:30px;
+    font-weight:700;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.primary:hover{
+    transform:translateY(-3px);
+    box-shadow:0 10px 30px rgba(255,255,255,.18);
+}
+
+/* SECTION */
+
+.section{
+    margin-top:55px;
+}
+
+.section-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:22px;
+}
+
+.section-head h2{
+    font-size:24px;
+}
+
+.section-head p{
+    color:var(--muted);
+    font-size:13px;
+}
+
+/* SEARCH */
+
+.search{
+    width:230px;
+    padding:12px 17px;
+    border-radius:30px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.05);
+    color:white;
+    outline:none;
+}
+
+.search::placeholder{
+    color:#777487;
+}
+
+/* SONG GRID */
+
+.song-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:20px;
+}
+
+.song{
+    background:var(--card);
+    border:1px solid var(--border);
+    border-radius:22px;
+    padding:13px;
+    backdrop-filter:blur(15px);
+    transition:.35s;
+    cursor:pointer;
+}
+
+.song:hover{
+    transform:translateY(-7px);
+    border-color:rgba(255,255,255,.2);
+    background:rgba(255,255,255,.10);
+}
+
+.cover{
+    height:205px;
+    border-radius:17px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:65px;
+    position:relative;
+    overflow:hidden;
+}
+
+.cover:after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:linear-gradient(135deg,transparent,rgba(255,255,255,.14));
+}
+
+.c1{
+    background:linear-gradient(135deg,#ff4f9a,#662cff);
+}
+
+.c2{
+    background:linear-gradient(135deg,#ff9b42,#e8326a);
+}
+
+.c3{
+    background:linear-gradient(135deg,#0eaaa2,#2357e9);
+}
+
+.c4{
+    background:linear-gradient(135deg,#7047ff,#d737d7);
+}
+
+.song-info{
+    padding:14px 3px 4px;
+}
+
+.song-info h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.song-info p{
+    color:#8e8a9b;
+    font-size:12px;
+}
+
+.play{
+    width:42px;
+    height:42px;
+    border:0;
+    border-radius:50%;
+    background:white;
+    color:#111;
+    float:right;
+    margin-top:-37px;
+    position:relative;
+    z-index:3;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.play:hover{
+    transform:scale(1.1);
+}
+
+/* PLAYLIST */
+
+.playlist{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.playlist-card{
+    padding:22px;
+    border:1px solid var(--border);
+    border-radius:22px;
+    background:linear-gradient(135deg,rgba(255,255,255,.08),rgba(255,255,255,.03));
+    display:flex;
+    align-items:center;
+    gap:17px;
+    transition:.3s;
+}
+
+.playlist-card:hover{
+    transform:translateY(-5px);
+}
+
+.playlist-icon{
+    width:65px;
+    height:65px;
+    border-radius:18px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:30px;
+    background:linear-gradient(135deg,#ff4f9a,#714bff);
+}
+
+.playlist-card h3{
+    font-size:16px;
+    margin-bottom:5px;
+}
+
+.playlist-card p{
+    color:#888596;
+    font-size:12px;
+}
+
+/* ABOUT */
+
+.about{
+    padding:35px;
+    border-radius:25px;
+    border:1px solid var(--border);
+    background:rgba(255,255,255,.04);
+    text-align:center;
+}
+
+.about h2{
+    font-family:'Playfair Display',serif;
+    font-size:30px;
+}
+
+.about p{
+    color:#9996a8;
+    line-height:1.8;
+    max-width:650px;
+    margin:15px auto 0;
+}
+
+/* PLAYER */
+
+.player{
+    position:fixed;
+    left:3%;
+    right:3%;
+    bottom:15px;
+    height:80px;
+    z-index:100;
+    border:1px solid rgba(255,255,255,.13);
+    border-radius:22px;
+    background:rgba(18,16,27,.88);
+    backdrop-filter:blur(25px);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:0 22px;
+    box-shadow:0 20px 60px rgba(0,0,0,.5);
+}
+
+.now{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:230px;
+}
+
+.mini{
+    width:50px;
+    height:50px;
+    border-radius:13px;
+    background:linear-gradient(135deg,#ff4f9a,#714bff);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:23px;
+}
+
+.now h4{
+    font-size:14px;
+}
+
+.now p{
+    color:#817d8e;
+    font-size:11px;
+    margin-top:4px;
+}
+
+.controls{
+    display:flex;
+    align-items:center;
+    gap:17px;
+}
+
+.control{
+    border:0;
+    background:none;
+    color:#aaa7b5;
+    font-size:19px;
+    cursor:pointer;
+}
+
+.main-play{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    border:0;
+    background:white;
+    color:#111;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.volume{
+    width:100px;
+}
+
+/* ANIMATION */
+
+@keyframes rotate{
+    from{transform:rotate(0)}
+    to{transform:rotate(360deg)}
+}
+
+.playing{
+    animation:rotate 7s linear infinite;
+}
+
+/* FOOTER */
+
+footer{
+    text-align:center;
+    margin-top:50px;
+    color:#666273;
+    font-size:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:900px){
+
+    .song-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .playlist{
+        grid-template-columns:1fr;
+    }
+
+    .hero h1{
+        font-size:48px;
+    }
+
+}
+
+@media(max-width:600px){
+
+    header{
+        padding:0 5%;
+    }
+
+    nav{
+        display:none;
+    }
+
+    .container{
+        width:92%;
+    }
+
+    .hero{
+        min-height:430px;
+        padding:30px;
+        border-radius:24px;
+    }
+
+    .hero h1{
+        font-size:42px;
+    }
+
+    .section-head{
+        align-items:flex-start;
+        gap:15px;
+        flex-direction:column;
+    }
+
+    .search{
+        width:100%;
+    }
+
+    .song-grid{
+        grid-template-columns:1fr 1fr;
+        gap:12px;
+    }
+
+    .cover{
+        height:150px;
+        font-size:45px;
+    }
+
+    .song{
+        padding:9px;
+    }
+
+    .song-info h3{
+        font-size:14px;
+    }
+
+    .player{
+        left:10px;
+        right:10px;
+        bottom:8px;
+        padding:0 12px;
+    }
+
+    .volume{
+        display:none;
+    }
+
+    .now{
+        min-width:0;
+    }
+
+    .now div:last-child{
+        max-width:100px;
+    }
+
+    .controls{
+        gap:10px;
+    }
+
+}
+</style>
+</head>
+
+<body>
+
+<header>
+
+    <div class="logo">
+        Mom Dad <span>Travels</span> ✦
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#songs">Songs</a>
+        <a href="#playlists">Playlists</a>
+        <a href="#about">About</a>
+    </nav>
+
+</header>
+
+
+<main class="container">
+
+<!-- HERO -->
+
+<section class="hero" id="home">
+
+    <div class="hero-content">
+
+        <div class="badge">
+            ✦ MUSIC • TRAVEL • MEMORIES
+        </div>
+
+        <h1>
+            Every journey<br>
+            needs a <span>song.</span>
+        </h1>
+
+        <p>
+            Welcome to Mom Dad Travels — your little corner
+            of music for family road trips, peaceful evenings
+            and unforgettable memories.
+        </p>
+
+        <button class="primary" onclick="playSong(0)">
+            ▶ Start Listening
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- TRENDING -->
+
+<section class="section" id="songs">
+
+    <div class="section-head">
+
+        <div>
+            <h2>Made for the journey ✨</h2>
+            <p>Fresh sounds for your next adventure</p>
+        </div>
+
+        <input
+            class="search"
+            id="search"
+            placeholder="🔎 Search music..."
+            onkeyup="searchMusic()"
+        >
+
+    </div>
+
+
+    <div class="song-grid" id="songGrid">
+
+
+        <div class="song" data-name="Road Trip Vibes">
+
+            <div class="cover c1">
+                🚗
+            </div>
+
+            <div class="song-info">
+
+                <h3>Road Trip Vibes</h3>
+
+                <p>Travel Mix • 3:42</p>
+
+                <button
+                    class="play"
+                    onclick="playSong(0)"
+                >
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="song" data-name="Family Journey">
+
+            <div class="cover c2">
+                ❤️
+            </div>
+
+            <div class="song-info">
+
+                <h3>Family Journey</h3>
+
+                <p>Family Mix • 4:12</p>
+
+                <button
+                    class="play"
+                    onclick="playSong(1)"
+                >
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="song" data-name="Mountain Dreams">
+
+            <div class="cover c3">
+                🏔️
+            </div>
+
+            <div class="song-info">
+
+                <h3>Mountain Dreams</h3>
+
+                <p>Chill Mix • 3:58</p>
+
+                <button
+                    class="play"
+                    onclick="playSong(2)"
+                >
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="song" data-name="Sunset Drive">
+
+            <div class="cover c4">
+                🌅
+            </div>
+
+            <div class="song-info">
+
+                <h3>Sunset Drive</h3>
+
+                <p>Evening Mix • 4:01</p>
+
+                <button
+                    class="play"
+                    onclick="playSong(3)"
+                >
+                    ▶
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- PLAYLISTS -->
+
+<section class="section" id="playlists">
+
+    <div class="section-head">
+        <div>
+            <h2>Your playlists 🎧</h2>
+            <p>Pick a mood and enjoy the ride</p>
+        </div>
+    </div>
+
+
+    <div class="playlist">
+
+        <div class="playlist-card">
+
+            <div class="playlist-icon">
+                🚗
+            </div>
+
+            <div>
+                <h3>Long Drive</h3>
+                <p>12 songs • 48 min</p>
+            </div>
+
+        </div>
+
+
+        <div class="playlist-card">
+
+            <div class="playlist-icon">
+                🌅
+            </div>
+
+            <div>
+                <h3>Sunset Vibes</h3>
+                <p>15 songs • 57 min</p>
+            </div>
+
+        </div>
+
+
+        <div class="playlist-card">
+
+            <div class="playlist-icon">
+                ❤️
+            </div>
+
+            <div>
+                <h3>Mom & Dad</h3>
+                <p>20 songs • 1 hr 12 min</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ABOUT -->
+
+<section class="section" id="about">
+
+    <div class="about">
+
+        <h2>Made with memories ❤️</h2>
+
+        <p>
+            Mom Dad Travels is more than a music website.
+            It's a soundtrack for the little moments —
+            highways, family laughs, sunsets and places
+            you'll never forget.
+        </p>
+
+    </div>
+
+</section>
+
+
+<footer>
+    © 2026 Mom Dad Travels • Music for every journey ✦
+</footer>
+
+</main>
+
+
+<!-- MUSIC PLAYER -->
+
+<div class="player">
+
+    <div class="now">
+
+        <div class="mini" id="miniCover">
+            🎵
+        </div>
+
+        <div>
+            <h4 id="currentSong">
+                Select a song
+            </h4>
+
+            <p>
+                Mom Dad Travels
+            </p>
+        </div>
+
+    </div>
+
+
+    <div class="controls">
+
+        <button
+            class="control"
+            onclick="previousSong()"
+        >
+            ⏮
+        </button>
+
+        <button
+            class="main-play"
+            id="mainPlay"
+            onclick="togglePlay()"
+        >
+            ▶
+        </button>
+
+        <button
+            class="control"
+            onclick="nextSong()"
+        >
+            ⏭
+        </button>
+
+    </div>
+
+
+    <input
+        class="volume"
+        type="range"
+        min="0"
+        max="1"
+        step=".01"
+        value=".7"
+        id="volume"
+    >
+
+</div>
+
+
+<audio id="audio"></audio>
+
+
+<script>
+
+const songs = [
+
+    {
+        title:"Road Trip Vibes",
+        file:"songs/road-trip-vibes.mp3"
+    },
+
+    {
+        title:"Family Journey",
+        file:"songs/family-journey.mp3"
+    },
+
+    {
+        title:"Mountain Dreams",
+        file:"songs/mountain-dreams.mp3"
+    },
+
+    {
+        title:"Sunset Drive",
+        file:"songs/sunset-drive.mp3"
+    }
+
+];
+
+
+let currentIndex = 0;
+let playing = false;
+
+
+const audio =
+    document.getElementById("audio");
+
+const currentSong =
+    document.getElementById("currentSong");
+
+const mainPlay =
+    document.getElementById("mainPlay");
+
+const miniCover =
+    document.getElementById("miniCover");
+
+const volume =
+    document.getElementById("volume");
+
+
+function playSong(index){
+
+    currentIndex = index;
+
+    audio.src = songs[index].file;
+
+    currentSong.innerText =
+        songs[index].title;
+
+    audio.volume = volume.value;
+
+    audio.play()
+    .then(()=>{
+
+        playing = true;
+
+        mainPlay.innerText = "⏸";
+
+        miniCover.classList.add("playing");
+
+    })
+    .catch(()=>{
+
+        alert(
+            "Song file nahi mili! songs folder mein apni MP3 file add karo."
+        );
+
+    });
+
+}
+
+
+function togglePlay(){
+
+    if(!audio.src){
+
+        playSong(currentIndex);
+
+        return;
+    }
+
+
+    if(playing){
+
+        audio.pause();
+
+        playing = false;
+
+        mainPlay.innerText = "▶";
+
+        miniCover.classList.remove("playing");
+
+    }
+
+    else{
+
+        audio.play();
+
+        playing = true;
+
+        mainPlay.innerText = "⏸";
+
+        miniCover.classList.add("playing");
+
+    }
+
+}
+
+
+function nextSong(){
+
+    currentIndex++;
+
+    if(currentIndex >= songs.length){
+        currentIndex = 0;
+    }
+
+    playSong(currentIndex);
+
+}
+
+
+function previousSong(){
+
+    currentIndex--;
+
+    if(currentIndex < 0){
+        currentIndex = songs.length - 1;
+    }
+
+    playSong(currentIndex);
+
+}
+
+
+audio.addEventListener(
+    "ended",
+    nextSong
+);
+
+
+volume.addEventListener(
+    "input",
+    ()=>{
+        audio.volume = volume.value;
+    }
+);
+
+
+function searchMusic(){
+
+    const value =
+        document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+
+    document
+    .querySelectorAll(".song")
+    .forEach(song=>{
+
+        const name =
+            song
+            .dataset
+            .name
+            .toLowerCase();
+
+
+        if(name.includes(value)){
+
+            song.style.display="block";
+
+        }
+
+        else{
+
+            song.style.display="none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>
