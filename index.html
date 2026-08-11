@@ -1074,7 +1074,16 @@ function searchMusic(){
     });
 
 }
+const audio = new Audio("roadtrip.mp3");
 
+document.querySelectorAll("button, a").forEach(btn => {
+  if (btn.textContent.trim().includes("Start Listening")) {
+    btn.addEventListener("click", function(e) {
+      e.preventDefault();
+      audio.play();
+    });
+  }
+});
 </script>
 
 </body>
